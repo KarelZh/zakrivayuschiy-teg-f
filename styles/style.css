@@ -13,9 +13,10 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--main-font) "Inter-Variable", sans-serif;
+  font-family: var(--main-font), "Inter-Variable", sans-serif;
   font-variation-settings: "wght" var(--main-textWeight);
   background-image: var(--bg-gradient);
+  background-attachment: fixed; 
   background-size: cover;
 }
 
@@ -32,16 +33,17 @@
 
 .header__logo {
   font-family: var(--accent-font);
-  font-size: 49px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  padding-top: clamp(7.5rem, 6.9231rem + 2.4615vw, 8rem);
   text-align: center;
-  padding: 122px 0 20px;
+  padding-bottom: 20px;
 }
 
 .header__title {
   font-family: var(--accent-font);
-  font-size: 14px;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   text-align: center;
-  padding: 0 0 122px;
+  padding-bottom: clamp(7.5rem, 6.9231rem + 2.4615vw, 8rem);
   text-transform: uppercase;
 }
 
@@ -53,7 +55,7 @@
 
 .card__title {
   font-size: 18px;
-  font-weight: var(--main-headerWeight);
+  font-variation-settings: "wght" var(--main-headerWeight);
   padding: 4px 10px;
 }
 
@@ -93,13 +95,18 @@
 @supports((text-stroke: 1px white) or (-webkit-text-stroke: 1px white)) {
   .watermark {
     -webkit-text-stroke: 1px white;
+    text-stroke: 1px white;
     text-shadow: none;
   }
 } 
 
 .card__image {
+  object-fit: cover;
+  object-position: center;
   width: 100%;
   min-height: 371px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .card__image-bright {
@@ -203,8 +210,11 @@
   height: 28px;
 }
 
-.popup {
+.popup[open] {
   padding: 0;
+  max-width: 353px;
+  margin: auto;
+  border: 2px solid black;
 }
 
 .popup::backdrop {
@@ -235,7 +245,6 @@
   line-height: 150%;
   font-family: var(--accent-font);
   text-transform: uppercase;
-  white-space: pre-line;
 }
 
 .popup__button {
@@ -243,9 +252,11 @@
   width: 261px;
   margin: 0 40px 30px;
   transition: 0.3s ease;
+  padding: 12px 0;
 }
 
 .button {
+  background-color: white;
   position: relative;
   overflow: hidden;
 }
@@ -278,12 +289,12 @@
 
 .like-icon {
   flex-shrink: 0;
-  transform-origin: center;
   height: 36px;
   width: 39px;
 }
 
 .like-icon.is-liked .heart {
+  transform-origin: center;
   animation: bigHeart 0.3s ease-in 0.1s 1 backwards;
 }
 
@@ -357,6 +368,7 @@
   
   .footer__button {
     flex-direction: row;
+    padding: 20px;
   }
   
   .popup__heading {
