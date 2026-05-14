@@ -16,7 +16,7 @@
   font-family: var(--main-font), "Inter-Variable", sans-serif;
   font-variation-settings: "wght" var(--main-textWeight);
   background-image: var(--bg-gradient);
-  background-attachment: fixed; 
+  background-attachment: fixed;
   background-size: cover;
 }
 
